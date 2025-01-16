@@ -48,7 +48,7 @@ public class VisionIO_REAL implements VisionIO {
     public Pose2d[] getMeasurements() {
         Pose2d[] visionMeasurement = new Pose2d[cameras.length];
         for (int i=0; i < cameras.length - 1; i++) {
-            getCameraMeasurement(cameras[i], poseEstimators[i]);
+            visionMeasurement[i] = getCameraMeasurement(cameras[i], poseEstimators[i]);
         }
         return visionMeasurement;
     }
