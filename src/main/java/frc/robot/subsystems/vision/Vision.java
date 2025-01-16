@@ -4,11 +4,31 @@
 
 package frc.robot.subsystems.vision;
 
+import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants;
+import frc.robot.subsystems.vision.io.VisionIO_SIM;
 
 public class Vision extends SubsystemBase {
   /** Creates a new Vision. */
-  public Vision() {}
+  VisionIO io;
+  public Vision() {
+    switch (Constants.currentMode) {
+      case SIM:
+        io = new VisionIO_SIM();
+        break;
+      case REAL:
+
+        break;
+      case REPLAY:
+
+        break;
+    }
+  }
+
+  public Pose2d[] getVisionMeasurements() {
+    return new Pose2d[4];
+  }
 
   @Override
   public void periodic() {
