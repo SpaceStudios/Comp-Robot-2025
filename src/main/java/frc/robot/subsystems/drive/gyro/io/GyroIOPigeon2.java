@@ -26,7 +26,6 @@ import edu.wpi.first.units.measure.Angle;
 import edu.wpi.first.units.measure.AngularVelocity;
 import frc.robot.subsystems.drive.SparkOdometryThread;
 import frc.robot.subsystems.drive.gyro.GyroIO;
-
 import java.util.Queue;
 
 /** IO implementation for Pigeon 2. */

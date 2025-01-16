@@ -7,5 +7,5 @@ package frc.robot.subsystems.vision;
 /** Add your docs here. */
 public interface VisionIO {
 
-    public abstract void getPose();
+  public abstract void getPose();
 }

@@ -36,7 +36,6 @@ import edu.wpi.first.math.filter.Debouncer;
 import edu.wpi.first.math.geometry.Rotation2d;
 import frc.robot.subsystems.drive.SparkOdometryThread;
 import frc.robot.subsystems.drive.module.ModuleIO;
-
 import java.util.Queue;
 import java.util.function.DoubleSupplier;
 

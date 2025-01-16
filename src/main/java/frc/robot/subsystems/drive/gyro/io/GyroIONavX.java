@@ -21,7 +21,6 @@ import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.util.Units;
 import frc.robot.subsystems.drive.SparkOdometryThread;
 import frc.robot.subsystems.drive.gyro.GyroIO;
-
 import java.util.Queue;
 
 /** IO implementation for NavX. */
