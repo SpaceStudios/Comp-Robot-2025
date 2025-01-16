@@ -31,24 +31,18 @@ public class VisionIO_REAL implements VisionIO {
         }
     }
 
-    private Pose2d getCameraMeasurement(PhotonCamera camera, PhotonPoseEstimator poseEstimator) {
-        List<PhotonPipelineResult> pipelineResults = camera.getAllUnreadResults();
-        if (pipelineResults.size() > 0) {
-            Optional <EstimatedRobotPose> estimatedPose = poseEstimator.update(pipelineResults.get(0));
-            if (estimatedPose.isPresent()) {
-                return estimatedPose.get().estimatedPose.toPose2d();
-            } else {
-                return null;
-            }
-        }
-        return null;
-    }
-
     @Override
     public Pose2d[] getMeasurements() {
         Pose2d[] visionMeasurement = new Pose2d[cameras.length];
-        for (int i=0; i < cameras.length - 1; i++) {
-            visionMeasurement[i] = getCameraMeasurement(cameras[i], poseEstimators[i]);
+        for (int i=0; i < cameras.length; i++) {
+            List<PhotonPipelineResult> pipelineResults = cameras[i].getAllUnreadResults();
+            if (pipelineResults.size() > 0) {
+                // may be last elem
+                Optional<EstimatedRobotPose> estimatedPose = poseEstimators[i].update(pipelineResults.get(0));
+                if (estimatedPose.isPresent()) {
+                    visionMeasurement[i] = estimatedPose.get().estimatedPose.toPose2d();
+                }
+            }
         }
         return visionMeasurement;
     }

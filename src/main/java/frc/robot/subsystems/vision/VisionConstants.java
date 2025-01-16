@@ -19,7 +19,9 @@ public class VisionConstants {
             "Camera2",
             "Camera3"
         };
-        public static final Transform3d[] CameraTransforms = new Transform3d[] {new Transform3d()};
+        public static final Transform3d[] CameraTransforms = new Transform3d[] {
+            new Transform3d()
+        };
         public static final PoseStrategy strategy = PoseStrategy.LOWEST_AMBIGUITY;
     }
 }

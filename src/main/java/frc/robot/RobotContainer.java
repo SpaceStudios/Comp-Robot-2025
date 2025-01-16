@@ -29,6 +29,8 @@ import frc.robot.subsystems.drive.gyro.io.GyroIOPigeon2;
 import frc.robot.subsystems.drive.module.ModuleIO;
 import frc.robot.subsystems.drive.module.io.ModuleIOSim;
 import frc.robot.subsystems.drive.module.io.ModuleIOSpark;
+import frc.robot.subsystems.vision.Vision;
+
 import org.littletonrobotics.junction.networktables.LoggedDashboardChooser;
 
 /**
@@ -58,7 +60,8 @@ public class RobotContainer {
                 new ModuleIOSpark(0),
                 new ModuleIOSpark(1),
                 new ModuleIOSpark(2),
-                new ModuleIOSpark(3));
+                new ModuleIOSpark(3),
+                new Vision());
         break;
 
       case SIM:
@@ -69,7 +72,8 @@ public class RobotContainer {
                 new ModuleIOSim(),
                 new ModuleIOSim(),
                 new ModuleIOSim(),
-                new ModuleIOSim());
+                new ModuleIOSim(),
+                new Vision());
         break;
 
       default:
@@ -80,7 +84,8 @@ public class RobotContainer {
                 new ModuleIO() {},
                 new ModuleIO() {},
                 new ModuleIO() {},
-                new ModuleIO() {});
+                new ModuleIO() {},
+                new Vision());
         break;
     }
 
