@@ -7,6 +7,7 @@ package frc.robot.subsystems.vision;
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
+import frc.robot.subsystems.vision.io.VisionIO_REAL;
 import frc.robot.subsystems.vision.io.VisionIO_SIM;
 
 public class Vision extends SubsystemBase {
@@ -18,16 +19,16 @@ public class Vision extends SubsystemBase {
         io = new VisionIO_SIM();
         break;
       case REAL:
-
+        io = new VisionIO_REAL();
         break;
       case REPLAY:
-
+        io = new VisionIO_SIM();
         break;
     }
   }
 
   public Pose2d[] getVisionMeasurements() {
-    return new Pose2d[4];
+    return io.getMeasurements();
   }
 
   @Override
