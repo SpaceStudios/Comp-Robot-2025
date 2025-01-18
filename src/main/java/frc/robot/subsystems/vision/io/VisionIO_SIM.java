@@ -64,4 +64,12 @@ public class VisionIO_SIM implements VisionIO {
         }
         return visionMeasurement;
     }
+
+	@Override
+	public void update(Pose2d pose) {
+		visionSim.update(pose);
+        for (int i=0; i<poseEstimators.length; i++) {
+            poseEstimators[i].setReferencePose(pose);
+        }
+	}
 }

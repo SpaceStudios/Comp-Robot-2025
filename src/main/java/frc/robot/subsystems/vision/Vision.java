@@ -31,6 +31,10 @@ public class Vision extends SubsystemBase {
     return io.getMeasurements();
   }
 
+  public void update(Pose2d pose) {
+    io.update(pose);
+  }
+
   @Override
   public void periodic() {
     // This method will be called once per scheduler run

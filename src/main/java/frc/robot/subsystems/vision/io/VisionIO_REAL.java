@@ -47,4 +47,9 @@ public class VisionIO_REAL implements VisionIO {
         return visionMeasurement;
     }
 
+    @Override
+    public void update(Pose2d pose) {
+        
+    }
+
 }

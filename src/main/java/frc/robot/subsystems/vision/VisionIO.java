@@ -10,4 +10,5 @@ import edu.wpi.first.math.geometry.Pose2d;
 public interface VisionIO {
 
   public abstract Pose2d[] getMeasurements();
+  public abstract void update(Pose2d presetPose);
 }

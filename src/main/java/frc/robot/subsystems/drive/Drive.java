@@ -186,6 +186,7 @@ public class Drive extends SubsystemBase {
 
       // Apply update
       poseEstimator.updateWithTime(sampleTimestamps[i], rawGyroRotation, modulePositions);
+      vision.update(poseEstimator.getEstimatedPosition());
     }
 
     // Update gyro alert
@@ -300,9 +301,13 @@ public class Drive extends SubsystemBase {
   @AutoLogOutput(key = "Odometry/Robot")
   public Pose2d getPose() {
     Pose2d[] visionMeasurements = vision.getVisionMeasurements();
+    Logger.recordOutput("Robot Pose Pre Vision", poseEstimator.getEstimatedPosition());
     for (int i=0; i<visionMeasurements.length; i++) {
-      poseEstimator.addVisionMeasurement(visionMeasurements[i], Timer.getFPGATimestamp());
+      if (visionMeasurements[i] != null) {
+        poseEstimator.addVisionMeasurement(visionMeasurements[i], Timer.getFPGATimestamp());
+      }
     }
+    Logger.recordOutput("Robot Pose Post Vision", poseEstimator.getEstimatedPosition());
     return poseEstimator.getEstimatedPosition();
   }
 
